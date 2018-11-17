@@ -1,0 +1,19 @@
+This project uses the following items from Poly (http://poly.google.com):
+
+Title: Ballpark
+Author: Poly by Google
+URL: https://poly.google.com/view/45Ez39JSdz6
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Baseball
+Author: Poly by Google
+URL: https://poly.google.com/view/28RBIWE8jzc
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Baseball bat
+Author: Poly by Google
+URL: https://poly.google.com/view/9FPflHIzK73
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode

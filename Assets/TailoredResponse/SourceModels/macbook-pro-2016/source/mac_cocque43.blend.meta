@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 3674ea8c9a84849f49c421f4385596fa
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Circle
+    100002: Circle_001
+    100004: Circle_002
+    100006: Circle_003
+    100008: Circle_005
+    100010: Circle_006
+    100012: Cube_000
+    100014: Cube_001
+    100016: Cube_008
+    100018: Cube_016
+    100020: Cube_021
+    100022: Cube_023
+    100024: Empty
+    100026: Empty_001
+    100028: Empty_002
+    100030: //RootNode
+    100032: Plane
+    100034: Plane_001
+    100036: Plane_002
+    100038: Plane_003
+    400000: Circle
+    400002: Circle_001
+    400004: Circle_002
+    400006: Circle_003
+    400008: Circle_005
+    400010: Circle_006
+    400012: Cube_000
+    400014: Cube_001
+    400016: Cube_008
+    400018: Cube_016
+    400020: Cube_021
+    400022: Cube_023
+    400024: Empty
+    400026: Empty_001
+    400028: Empty_002
+    400030: //RootNode
+    400032: Plane
+    400034: Plane_001
+    400036: Plane_002
+    400038: Plane_003
+    2100000: plane__Untitled_002
+    2100002: Usbc__Untitled_005
+    2100004: scan__Untitled
+    2100006: black_gloss__Untitled
+    2100008: jack__TextureAtlas
+    2100010: foot__TextureAtlas
+    2100012: lightbar__Untitled
+    2100014: coque__Untitled
+    2100016: trackpad__Untitled
+    2100018: key__keyboard1_jpg
+    2100020: coque__TextureAtlas
+    2100022: black_rough__TextureAtlas
+    2100024: blackrough2__TextureAtlas
+    2100026: black_gloss__TextureAtlas
+    2100028: screen__TextureAtlas
+    2100030: lens__TextureAtlas
+    2100032: glass
+    2100034: logo_macbook__macbook_logo_jpg
+    2100036: logo__Untitled
+    2300000: Circle
+    2300002: Circle_001
+    2300004: Circle_002
+    2300006: Circle_003
+    2300008: Circle_005
+    2300010: Circle_006
+    2300012: Cube_000
+    2300014: Cube_001
+    2300016: Cube_008
+    2300018: Cube_016
+    2300020: Cube_021
+    2300022: Cube_023
+    2300024: Plane
+    2300026: Plane_001
+    2300028: Plane_002
+    2300030: Plane_003
+    3300000: Circle
+    3300002: Circle_001
+    3300004: Circle_002
+    3300006: Circle_003
+    3300008: Circle_005
+    3300010: Circle_006
+    3300012: Cube_000
+    3300014: Cube_001
+    3300016: Cube_008
+    3300018: Cube_016
+    3300020: Cube_021
+    3300022: Cube_023
+    3300024: Plane
+    3300026: Plane_001
+    3300028: Plane_002
+    3300030: Plane_003
+    4300000: Plane_003
+    4300002: Circle_003
+    4300004: Circle_002
+    4300006: Circle_001
+    4300008: Cube_001
+    4300010: Cube_000
+    4300012: Circle_005
+    4300014: Cube_021
+    4300016: Cube_016
+    4300018: Circle
+    4300020: Cube_008
+    4300022: Plane
+    4300024: Circle_006
+    4300026: Cube_023
+    4300028: Plane_002
+    4300030: Plane_001
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

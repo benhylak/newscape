@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1422843845443716}
+  m_IsPrefabParent: 1
+--- !u!1 &1422843845443716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4748991878594934}
+  - component: {fileID: 114539961651548016}
+  - component: {fileID: 114423995447771528}
+  - component: {fileID: 114045917941047286}
+  - component: {fileID: 114825017315199472}
+  - component: {fileID: 114540192212953912}
+  m_Layer: 0
+  m_Name: TailoredSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4748991878594934
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -10.689016, y: 8.548202, z: -6.407403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114045917941047286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5494819d738aa411183fa5bbf5ca3847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchingTerms:
+  - russia
+  - kremlin
+  - moscow
+  equivalentModels:
+  - {fileID: 100000, guid: 432cb9838b0b947378b04af549867ee8, type: 3}
+  - {fileID: 1775374655541548, guid: 65887033c585043f69a88a69ae7c1d52, type: 2}
+--- !u!114 &114423995447771528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5494819d738aa411183fa5bbf5ca3847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchingTerms:
+  - marvel
+  - avengers
+  - thor
+  - superhero
+  - hulk
+  equivalentModels:
+  - {fileID: 1707740012315352, guid: bbdc76ef417494ec590fd5072d553541, type: 2}
+  - {fileID: 1239985697320326, guid: 5050515b94c8e47f880da3553bc88e0b, type: 2}
+--- !u!114 &114539961651548016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f8d916931814eb0a8b9b5e3fc0c4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114540192212953912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5494819d738aa411183fa5bbf5ca3847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchingTerms:
+  - birthday
+  - cake
+  equivalentModels:
+  - {fileID: 1847745017593858, guid: 723affec71a234ebab5680ac48235bfa, type: 2}
+--- !u!114 &114825017315199472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422843845443716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5494819d738aa411183fa5bbf5ca3847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchingTerms:
+  - education
+  - school
+  - college
+  equivalentModels:
+  - {fileID: 100002, guid: 803ecc4d3aea84eb996ea20471704f80, type: 3}
+  - {fileID: 100000, guid: c34af54e120454f53b064913d181cdfc, type: 3}
