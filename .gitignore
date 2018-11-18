@@ -1,6 +1,9 @@
 # Mac Specific
 **/.DS_Store
 
+# Secrets
+Assets/Resources/Newscape-0ab7b9189416.json
+
 # Unity
 
 [Ll]ibrary/

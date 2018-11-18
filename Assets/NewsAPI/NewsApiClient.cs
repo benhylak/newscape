@@ -19,7 +19,7 @@ namespace NewsAPI
     {
         private string BASE_URL = "https://newsapi.org/v2/";
 
-        private HttpClient HttpClient; 
+        private HttpClient HttpClient;  
 
         private string ApiKey;
 

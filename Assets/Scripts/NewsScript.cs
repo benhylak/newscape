@@ -55,7 +55,7 @@ public class NewsScript : MonoBehaviour {
 	public Dictionary<string, int> dF;
 	private NewsApiClient newsApiClient;
 
-	private static string WORD_FREQUENCY_CSV_PATH = "Assets/Resouces/headline_word_counts.csv";
+	private static string WORD_FREQUENCY_CSV_PATH = "Assets/Resources/headline_word_counts.csv";
 
 	private GCNaturalLanguage _gcNaturalLanguage;
 
@@ -171,54 +171,70 @@ public class NewsScript : MonoBehaviour {
 
 	public async Task<ScoredSearchResult> SearchPoly(string term)
 	{
+		Debug.Log("Searching Poly for term: " + term);
+
 		var request = new PolyListAssetsRequest();
+		request.orderBy = PolyOrderBy.BEST;
 		request.keywords = term;
 		request.curated = true;
 
 		PolyListAssetsResult result = null;
 
+		bool error = false;
+
 		PolyApi.ListAssets(request, response =>
 		{
-			result = response.Value;
+			if(response.Ok)
+			{
+				result = response.Value;
+			}
+			else
+			{
+				error = true;
+			}			
 		});
 
-		while(result == null) //TODO: Add Timeout to avoid infinite loop!
+		while(result == null && !error) //TODO: Add Timeout to avoid infinite loop!
 		{
 			await Task.Delay(50);
 		}
 
+		await new WaitForBackgroundThread();
+
 		PolyAsset bestAsset = null;
 		double bestScore = double.MinValue;
 
-		foreach(var asset in result.assets)
+		if(result != null)
 		{
-			//get how related it is to the search term
-			//if doesn't exist in concept net, only accept exact matches (or lev dists <2)
-			//made by poly is * 1.5 multiplier (can tweak)
-
-			double score = -1;
-			
-			if(asset.displayName.ToLower().Equals(term))
+			foreach(var asset in result.assets)
 			{
-				score = 1;
-			}
-			else
-			{
-				score = _conceptNet.GetRelationScore(asset.displayName.ToLower(), term);
-			}
+				//get how related it is to the search term
+				//if doesn't exist in concept net, only accept exact matches (or lev dists <2)
+				//made by poly is * 1.5 multiplier (can tweak)
 
-					
-			Debug.Log(asset.displayName + " by: " + asset.authorName + " (" + score + ") ");;
+				double score = -1;
+				
+				if(asset.displayName.ToLower().Equals(term))
+				{
+					score = 1;
+				}
+				else
+				{
+					score = _conceptNet.GetRelationScore(asset.displayName.ToLower(), term);
+				}
+				
+				Debug.Log(asset.displayName + " by: " + asset.authorName + " (" + score + ") ");;
 
-			if(asset.authorName.Contains("Google"))
-			{
-				score = score * 1.5;
-			}
+				if(asset.authorName.Contains("Google"))
+				{
+					score = score * 1.75;
+				}
 
-			if(score > bestScore)
-			{
-				bestScore = score;
-				bestAsset = asset;
+				if(score > bestScore)
+				{
+					bestScore = score;
+					bestAsset = asset;
+				}
 			}
 		}
 
@@ -234,27 +250,9 @@ public class NewsScript : MonoBehaviour {
 		bestResult.score = bestScore;
 		bestResult.polyAsset = bestAsset;
 
+		await new WaitForUpdate();
+
 		return bestResult;
-
-		// this.gameObject.GetComponent<GameManager>().SearchPoly(word, result =>
-		// {
-		// 	if(!result.Ok) return;
-
-		// 	PolyApi.Import(
-		// 		GetComponent<GameManager>().getBestPolyAsset(word, result.Value.assets), 
-		// 		PolyImportOptions.Default(),
-		// 		(_, res) => 
-		// 		{
-		// 			Debug.Log("Best asset: " + _.displayName + " " + _.authorName);
-
-		// 			if (!result.Ok) {
-		// 				Debug.LogError("Failed to import asset. :( Reason: " + result.Status);
-		// 				return;
-		// 			}
-
-		// 			res.Value.gameObject.AddComponent<Rotate>();
-		// 		});
-		// });
 	}
 
 	 public void AnalyzeEntities(string text, Enumerators.Language lang)
@@ -281,15 +279,13 @@ public class NewsScript : MonoBehaviour {
 	{
 		double bestScore = double.MinValue;
 		ScoredSearchResult bestAssetForTerm = new ScoredSearchResult();
-		string bestTerm;
+		string bestTerm = "";
 
 		Dictionary<string, Task<ScoredSearchResult>> polyLookupTasks = termScores.Keys.ToDictionary(x => x, x => SearchPoly(x));
-
-		Debug.Log("Here 1");
 		
-		await Task.WhenAll(polyLookupTasks.Values.AsEnumerable());
+		await new WaitForBackgroundThread();
 
-		Debug.Log("Here 2");
+		await Task.WhenAll(polyLookupTasks.Values.AsEnumerable());
 
 		for(int i=0; i< termScores.Keys.Count; i++)
 		{
@@ -325,6 +321,8 @@ public class NewsScript : MonoBehaviour {
 
 		// 2 probably makes the most sense, given that this process doesn't need much optimizaition
 
+		await new WaitForUpdate();
+
 		if(bestAssetForTerm.searchType == ScoredSearchResult.SearchType.POLY)
 		{
 			//todo convert to await
@@ -337,9 +335,9 @@ public class NewsScript : MonoBehaviour {
 			gameObject.transform.position = Vector3.zero;
 		}
 
-		GetComponent<GameManager>().lastSearchKeywords = bestAssetForTerm.name;
+		//GetComponent<GameManager>().lastSearchKeywords = bestAssetForTerm.name;
 
-		Debug.Log("Best word: " + bestAssetForTerm.name);
+		Debug.Log("Best word: " + bestTerm);
 	}
 
 	private Dictionary<string, double> scoreAllTerms(AnnotateTextResponse annotationResult)
@@ -366,7 +364,7 @@ public class NewsScript : MonoBehaviour {
 				foreach(var word in wordsInEntity)
 				{
 					var idf = getIdf(word);
-					termScores[word] = getTermRelevancyScore(idf, item.salience, splitSalience: true, wordsInOriginalTerm: wordsInEntity.Count());
+					termScores[word] = getTermRelevancyScore(idf, item.salience);
 
 					Debug.Log(String.Format("Word: {0} Term Salience: {1} Word IDF: {2} Score: {3}", word, item.salience, idf, termScores[word]));
 				}
@@ -388,11 +386,9 @@ public class NewsScript : MonoBehaviour {
 		FindBestAssetForTerms(termScores, termIsPersonMap);
 	}
 
-	private double getTermRelevancyScore(double idf, double salience, bool splitSalience = false, int wordsInOriginalTerm = 1)
+	private double getTermRelevancyScore(double idf, double salience)
 	{
-		if(splitSalience) salience = salience / wordsInOriginalTerm;
-
-		return idf * idf * salience;
+		return idf * idf * Math.Sqrt(salience);
 	}
 
 	private double getIdf(string word)
